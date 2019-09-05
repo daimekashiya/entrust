@@ -1,6 +1,7 @@
 # ENTRUST (Laravel Package)
 
 This Entrust is a succinct and flexible way to add Role-based Permissions to **Laravel**.
+
 It was forked from zizaco/entrust as its been abandoned for quite some years thus as Laravel 6 came in I decided to pick up where it left off.
 
 If you are looking for the Laravel 4 version, take a look [Branch 1.0](https://github.com/Zizaco/entrust/tree/1.0). It
