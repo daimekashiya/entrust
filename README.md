@@ -35,19 +35,26 @@ contains the latest entrust version for Laravel 4.
 1) In order to install Laravel 5 Entrust, just add the following to your composer.json. Then run `composer update`:
 
 ```json
-"zizaco/entrust": "5.2.x-dev"
+"daimekashiya/entrust": "dev-master"
 ```
+
+Or just run this at your project to install using Composer through `composer install`
+
+```bash
+composer install daimekashiya/entrust
+```
+
 
 2) Open your `config/app.php` and add the following to the `providers` array:
 
 ```php
-Zizaco\Entrust\EntrustServiceProvider::class,
+daimekashiya\Entrust\EntrustServiceProvider::class,
 ```
 
 3) In the same `config/app.php` and add the following to the `aliases ` array: 
 
 ```php
-'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+'Entrust'   => daimekashiya\Entrust\EntrustFacade::class,
 ```
 
 4) Run the command below to publish the package config file `config/entrust.php`:
@@ -71,9 +78,9 @@ php artisan vendor:publish
 6)  If you want to use [Middleware](#middleware) (requires Laravel 5.1 or later) you also need to add the following:
 
 ```php
-    'role' => \Zizaco\Entrust\Middleware\EntrustRole::class,
-    'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
-    'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
+    'role' => \daimekashiya\Entrust\Middleware\EntrustRole::class,
+    'permission' => \daimekashiya\Entrust\Middleware\EntrustPermission::class,
+    'ability' => \daimekashiya\Entrust\Middleware\EntrustAbility::class,
 ```
 
 to `routeMiddleware` array in `app/Http/Kernel.php`.
@@ -115,7 +122,7 @@ Create a Role model inside `app/models/Role.php` using the following example:
 ```php
 <?php namespace App;
 
-use Zizaco\Entrust\EntrustRole;
+use daimekashiya\Entrust\EntrustRole;
 
 class Role extends EntrustRole
 {
@@ -136,7 +143,7 @@ Create a Permission model inside `app/models/Permission.php` using the following
 ```php
 <?php namespace App;
 
-use Zizaco\Entrust\EntrustPermission;
+use daimekashiya\Entrust\EntrustPermission;
 
 class Permission extends EntrustPermission
 {
@@ -157,7 +164,7 @@ Next, use the `EntrustUserTrait` trait in your existing `User` model. For exampl
 ```php
 <?php
 
-use Zizaco\Entrust\Traits\EntrustUserTrait;
+use daimekashiya\Entrust\Traits\EntrustUserTrait;
 
 class User extends Eloquent
 {
