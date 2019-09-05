@@ -14,6 +14,11 @@ class EntrustSetupTables extends Migration
     {
         DB::beginTransaction();
 
+        if (!Schema::hasTable('users')) {
+            
+        }
+
+
         // Create table for storing roles
         Schema::create('{{ $rolesTable }}', function (Blueprint $table) {
             $table->increments('id')->unsigned();
