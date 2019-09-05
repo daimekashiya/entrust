@@ -16,12 +16,26 @@ class EntrustSetupTables extends Migration
 
         // Create table for storing roles
         Schema::create('{{ $rolesTable }}', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->string('name')->unique();
             $table->string('display_name')->nullable();
             $table->string('description')->nullable();
             $table->timestamps();
         });
+
+
+
+        // Create table for storing permissions
+        Schema::create('{{ $permissionsTable }}', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->string('name')->unique();
+            $table->string('display_name')->nullable();
+            $table->string('description')->nullable();
+            $table->timestamps();
+        });
+
+
+
 
         // Create table for associating roles to users (Many-to-Many)
         Schema::create('{{ $roleUserTable }}', function (Blueprint $table) {
@@ -37,19 +51,10 @@ class EntrustSetupTables extends Migration
             // $table->primary(['user_id', 'role_id']);
         });
 
-        // Create table for storing permissions
-        Schema::create('{{ $permissionsTable }}', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name')->unique();
-            $table->string('display_name')->nullable();
-            $table->string('description')->nullable();
-            $table->timestamps();
-        });
-
         // Create table for associating permissions to roles (Many-to-Many)
         Schema::create('{{ $permissionRoleTable }}', function (Blueprint $table) {
-            $table->integer('permission_id')->unsigned();
-            $table->integer('role_id')->unsigned();
+            $table->unsignedInteger('permission_id');
+            $table->unsignedInteger('role_id');
             $table->timestamps();
 
             $table->foreign('permission_id')->references('id')->on('{{ $permissionsTable }}')
