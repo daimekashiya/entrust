@@ -41,7 +41,7 @@ contains the latest entrust version for Laravel 4.
 Or just run this at your project to install using Composer through `composer install`
 
 ```bash
-composer install daimekashiya/entrust
+composer require daimekashiya/entrust
 ```
 
 
