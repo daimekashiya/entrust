@@ -1,4 +1,4 @@
-# ENTRUST (Laravel 5 Package)
+# ENTRUST (Laravel Package)
 
 [![Build Status](https://travis-ci.org/Zizaco/entrust.svg)](https://travis-ci.org/Zizaco/entrust)
 [![Version](https://img.shields.io/packagist/v/Zizaco/entrust.svg)](https://packagist.org/packages/zizaco/entrust)
